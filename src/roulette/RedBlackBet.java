@@ -8,7 +8,7 @@ import util.ConsoleReader;
  * 
  * @author Robert C. Duvall
  */
-public class Bet {
+public class RedBlackBet extends Bet{
     private String myDescription;
     private String name;
     private int myOdds;
@@ -21,11 +21,8 @@ public class Bet {
      * @param description name of this kind of bet
      * @param odds odds given by the house for this kind of bet
      */
-    public Bet (String description, int odds, String[] choiceArray) {
-        myDescription = description;
-        myOdds = odds;
-        myChoiceArray = choiceArray;
-
+    public RedBlackBet (String description, int odds, String[] choiceArray) {
+        super(description, odds, choiceArray);
     }
 
     /**
@@ -49,6 +46,14 @@ public class Bet {
     public String getChoice () {
         return choice;
     }
-    
 
+    public boolean checkWin (Wheel wheel) {
+        if (wheel.getColor().equals(choice)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
 }
